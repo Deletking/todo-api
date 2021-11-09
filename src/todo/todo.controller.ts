@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
+import { CreateTodoDto } from 'src/DTO/create-todo.dto';
 import { TodoService } from './todo.service';
 
 @Controller('todos')
@@ -11,8 +12,7 @@ export class TodoController {
   }
 
   @Post()
-  createNewTodo(@Body() data) {
-    const { title, description } = data;
-    this.todoService.createTodo(title, description);
+  createNewTodo(@Body(ValidationPipe) data: CreateTodoDto) {
+    this.todoService.createTodo(data);
   }
 }
