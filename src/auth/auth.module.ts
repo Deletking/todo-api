@@ -5,12 +5,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from 'src/Entity/user.entity';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
+import { JwtCustomStrategy } from './jwt.custom.strategy';
 
 @Module({
   imports: [ 
     TypeOrmModule.forFeature([UserEntity]),
     JwtModule.register({
-      secret: 'adfafs',
+      secret: 'secretkeykeykey',
       signOptions: {
         algorithm: 'HS512',
         expiresIn: 'id'
@@ -20,7 +21,8 @@ import { AuthService } from './auth.service';
       defaultStrategy: 'jwt'
     })
   ],
+  providers: [AuthService, JwtCustomStrategy],
   controllers: [AuthController],
-  providers: [AuthService]
+  exports: [PassportModule, JwtCustomStrategy]
 })
 export class AuthModule {}
