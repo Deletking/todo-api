@@ -1,5 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import * as bcrypt from 'bcryptjs';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { TodoEntity } from "./todo.entity";
 
 @Entity('users')

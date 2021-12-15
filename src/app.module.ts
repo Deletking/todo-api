@@ -10,10 +10,11 @@ const ormOptions: TypeOrmModuleOptions = {
   host: 'localhost',
   port: 3306,
   username: 'root',
-  password: '',
+  password: 'root',
   database: 'todo',
   autoLoadEntities: true,
   synchronize: true,
+  insecureAuth: true
 };
 @Module({
   imports: [TodoModule, TypeOrmModule.forRoot(ormOptions), AuthModule],
