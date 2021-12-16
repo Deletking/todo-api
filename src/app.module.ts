@@ -7,11 +7,11 @@ import { AuthModule } from './auth/auth.module';
 
 const ormOptions: TypeOrmModuleOptions = {
   type: 'mysql',
-  host: 'localhost',
+  host: 'database-1.co7uq1hxu43x.sa-east-1.rds.amazonaws.com',
   port: 3306,
-  username: 'root',
-  password: 'root',
-  database: 'todo',
+  username: 'admin',
+  password: 'Manga2450',
+  database: 'DatabaseOne',
   autoLoadEntities: true,
   synchronize: true,
   insecureAuth: true
